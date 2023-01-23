@@ -1,11 +1,11 @@
 package com.example.calculator.controllers;
 
 import com.example.calculator.services.CalcService;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequestMapping("/calculator")
 public class CalcController {
     private final CalcService calcService;
@@ -15,27 +15,27 @@ public class CalcController {
     }
 
     @GetMapping
-    public void hello() {
-        System.out.println("Welcome in calculator");
+    public String hello() {
+        return " Welcome in calculator ";
     }
 
     @GetMapping("/plus")
-    public void addition(Integer num1, Integer num2) {
-       calcService.addition(num1, num2);
+    public String addition(Integer num1, Integer num2) {
+       return calcService.addition(num1, num2);
     }
 
     @GetMapping("/minus")
-    public void subtraction(Integer a, Integer b) {
-       calcService.subtraction(a, b);
+    public String subtraction(Integer num1, Integer num2) {
+       return calcService.subtraction(num1, num2);
     }
 
     @GetMapping("/multiply")
-    public void multiplication(Integer a, Integer b) {
-       calcService.multiplication(a, b);
+    public String multiplication(Integer num1, Integer num2) {
+       return calcService.multiplication(num1, num2);
     }
 
     @GetMapping("/divide")
-    public void division(Integer a, Integer b) {
-       calcService.division(a, b);
+    public String division(Integer num1, Integer num2) {
+       return calcService.division(num1, num2);
     }
 }
