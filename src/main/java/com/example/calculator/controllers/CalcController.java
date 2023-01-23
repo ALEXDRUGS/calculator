@@ -14,7 +14,7 @@ public class CalcController {
         this.calcService = calcService;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public void hello() {
         System.out.println("Welcome in calculator");
     }
